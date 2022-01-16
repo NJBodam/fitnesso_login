@@ -23,13 +23,11 @@ public class PersonController {
                 "Signed up successfully" : "User already exist, sign in instead";
     }
 
-    @PostMapping("/signin")
-    public String signIn(@RequestBody Person person) {
-        Person signInStatus = personService.loginAuth(person.getEmail(), person.getUsername());
+    @PostMapping("/login")  //  Changed the endpoint name from '/signup' to '/login'
+    public String loginPerson(@RequestBody Person person) {
+        Person signInStatus = personService.loginAuth(person.getUsername(), person.getPassword());
             return (signInStatus != null) ? signInStatus +
-                    "Signed in sucessfully" : "Wrong credentials";
+                    "Signed in successfully" : "Wrong credentials";
     }
-
-
 
 }
