@@ -7,5 +7,5 @@ public interface PersonService {
 
     Person savePerson(Person person);
 
-    Person loginAuth(String email, String password);
+    Person loginAuth(String username, String password);
 }

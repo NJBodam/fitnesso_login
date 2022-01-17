@@ -23,9 +23,9 @@ public class PersonController {
                 "Signed up successfully" : "User already exist, sign in instead";
     }
 
-    @PostMapping("/signin")
-    public String signIn(@RequestBody Person person) {
-        Person signInStatus = personService.loginAuth(person.getEmail(), person.getUsername());
+    @PostMapping("/login")
+    public String loginPerson(@RequestBody Person person) {
+        Person signInStatus = personService.loginAuth(person.getUsername(), person.getPassword());
             return (signInStatus != null) ? signInStatus +
                     "Signed in sucessfully" : "Wrong credentials";
     }
